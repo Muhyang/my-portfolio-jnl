@@ -1,0 +1,500 @@
+/* Impedir a seleção de texto em toda a página */
+* {
+    user-select: none;
+}
+
+body {
+    background-image: url("./img/bege.png");
+    background-repeat: repeat;
+    background-size: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta a altura do body para cobrir a altura da tela */
+    margin: 0;
+}
+
+.container-colunas {
+    max-width: 100%;
+    margin: 0 auto;
+    height: 90vh;
+    width: 100%;
+}
+
+.retangulo {
+    position: relative;
+    width: 93%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    margin: auto;
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    border: #646351 solid;
+    background-color: #fdf8ef;
+    z-index: 2;
+}
+
+/* .retangulo::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(#00ffa28b, rgba(255, 255, 255, 0.322));
+    animation: animate 3s linear infinite;
+    transform-origin: center;
+    top: 60%;
+    left: -12%;
+    z-index: 1;
+    border-radius: 100%;
+}
+
+.retangulo.box {
+    position: relative;
+    width: 93%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    margin: auto;
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} */
+
+.menu {
+    list-style: none;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    margin-top: auto;
+}
+
+.coluna-esquerda {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.coluna-esquerda,
+.coluna-direita {
+    flex: 1;
+    max-width: 50%;
+}
+
+.posc-titl {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 32px;
+    margin-top: 3%;
+    justify-content: flex-start;
+}
+
+.titulo {
+    font-family: "Neue Montreal Light";
+    font-weight: 300;
+    font-size: 4em;
+    color: #646351;
+    margin: 0;
+}
+
+.subtitulo {
+    font-family: "Neue Montreal Medium";
+    font-size: 1.4em;
+    font-weight: 300;
+    color: #75735b9b;
+    margin-top: -5px;
+}
+
+.coluna-direita {
+    flex: 1;
+}
+
+.coluna-esquerda {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.conteudo-contato {
+    margin-top: 60%;
+}
+
+/* Adicione estas regras de estilo para estilizar os links na seção "Contato" */
+.conteudo-contato a {
+    text-decoration: none; /* Remove o sublinhado padrão */
+    transition: color 0.2s; /* Adiciona uma transição suave para a cor ao passar o mouse */
+    font-family: "Neue Montreal";
+    color: #6e6d58;
+    font-weight: 550;
+    font-size: 1.1rem;
+}
+
+.conteudo-contato a:hover {
+    color: #00af7b;
+    text-shadow: 0 0 15px #00ffa3;
+}
+
+.menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.conteudo-projetos {
+    max-height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+/* Estilizando a barra de rolagem no navegador WebKit (como o Google Chrome) */
+.conteudo-projetos::-webkit-scrollbar {
+    width: 0;
+}
+
+/* Estilizando os links */
+.conteudo-projetos a {
+    text-decoration: none;
+    color: #6e6d58;
+    transition: color 0.3s;
+}
+
+/* Estilizando os links quando hover */
+.conteudo-projetos a:hover {
+    text-decoration: none;
+    color: #00c17a;
+    text-shadow: 0 0 15px #00ffa3;
+}
+
+.menu a {
+    text-decoration: none;
+    font-family: "Neue Montreal";
+    color: #6e6d58d4;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: block;
+    transition: color 0.2s, text-shadow 0.2s;
+    position: relative;
+    max-width: 100px;
+    margin-left: 16px;
+}
+
+.menu a:hover {
+    color: #00af7b;
+    text-shadow: 0 0 15px #00ffa3;
+}
+
+.menu a::before {
+    content: "•";
+    color: #00af7b;
+    font-size: 1.2em;
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.menu a.selected::before {
+    opacity: 1;
+    color: #00af7b;
+    text-shadow: none;
+}
+
+.menu a.selected {
+    color: transparent;
+    pointer-events: none;
+    cursor: default;
+}
+
+.coluna-direita > div {
+    display: none;
+}
+
+/* Garanta que a seção "Início" seja visível por padrão */
+.inicio-texto {
+    display: block;
+    margin-top: 5%;
+    margin-right: 5%;
+    z-index: 1;
+}
+
+/* Esconda as seções "Projetos" e "Contato" por padrão */
+.conteudo-projetos {
+    display: none;
+}
+
+.conteudo-contato {
+    display: none;
+}
+
+/* Quando o link "Contato" estiver selecionado, mostre a seção "Contato" */
+.menu a.option:nth-child(3).selected ~ .coluna-direita .conteudo-contato {
+    display: block;
+}
+
+/* Quando o link "Início" estiver selecionado, mostre a seção "Início" */
+.menu a.option:first-child.selected ~ .coluna-direita .inicio-texto {
+    display: block;
+}
+
+/* Quando o link "Projetos" ou "Contato" estiver selecionado, mostre as respectivas seções */
+.menu a.option:nth-child(2).selected ~ .coluna-direita .conteudo-projetos,
+.menu a.option:nth-child(3).selected ~ .coluna-direita .conteudo-contato {
+    display: block;
+}
+
+/* Quando um link estiver selecionado, esconda o texto do link */
+.menu a.selected {
+    color: transparent;
+    pointer-events: none;
+    cursor: default;
+}
+
+/* Estilizar o texto */
+.texto-estilizado {
+    font-family: "Neue Montreal";
+    color: #646351;
+    max-width: 100%;
+    margin-top: 30%;
+    text-align: left;
+    display: none;
+    font-size: 1rem;
+}
+
+/* Quando o link "Início" estiver selecionado, mostre o texto estilizado */
+.menu a.option:first-child.selected ~ .coluna-direita .texto-estilizado {
+    display: block;
+}
+
+/* Quando a tela for menor, faça ajustes no texto estilizado */
+@media (max-width: 768px) {
+    .texto-estilizado {
+        font-size: 1em;
+        max-width: 90%;
+        margin-top: 10px;
+        margin-left: 5%;
+    }
+}
+
+/* Quando a tela for de tablet (resolução média), faça ajustes no texto estilizado */
+@media (max-width: 1420px) {
+    .texto-estilizado {
+        font-size: 1.2em;
+        max-width: 90%;
+        margin-top: 10px;
+        margin-left: 5%;
+    }
+}
+
+.carousel {
+    margin-left: 40%;
+}
+
+.coluna-direita .conteudo-projetos,
+.coluna-direita .conteudo-contato {
+    display: none;
+}
+
+.menu a.option:nth-child(2).selected ~ .coluna-direita .conteudo-projetos,
+.menu a.option:nth-child(3).selected ~ .coluna-direita .conteudo-contato {
+    display: block;
+}
+
+.menu a.option.selected ~ .coluna-direita .inicio-texto {
+    display: block;
+}
+
+.inicio-texto {
+    display: none;
+}
+
+/* Media queries para tornar o layout responsivo */
+@media screen and (max-width: 768px) {
+    .retangulo {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .coluna-esquerda,
+    .coluna-direita {
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .titulo {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+
+    .subtitulo {
+        font-size: 1.2em;
+    }
+}
+
+/* Parte relacionada ao "project list" */
+.project {
+    padding: calc(var(--pad) * 2 + 96px) calc(var(--pad) * 2);
+    text-align: right;
+    white-space: nowrap;
+}
+
+@media (min-width: 1280px) {
+    .project {
+        padding: calc(var(--pad) * 2 + 125px) calc(var(--pad) * 2);
+    }
+}
+
+.project_section + .project_section {
+    margin-top: 100px;
+}
+
+.project_heading {
+    font-weight: 400;
+}
+
+.project_list {
+    margin-top: 5%;
+    margin-right: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    row-gap: 15px;
+}
+
+@media (min-width: 1280px) {
+    .project_item {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        align-items: baseline;
+        column-gap: 15px;
+    }
+}
+
+.project_title {
+    font-weight: 200;
+    font-size: 6vw;
+    text-align: right;
+}
+
+@media (min-width: 1280px) {
+    .project_title {
+        font-size: 60px;
+    }
+}
+
+.is-monospaced .project_title {
+    letter-spacing: -0.04em;
+}
+
+.project_info {
+    margin-top: 5px;
+}
+
+@media (min-width: 1280px) {
+    .project_info {
+        margin-top: 0;
+    }
+}
+
+.info {
+    position: absolute;
+    left: calc(var(--pad) * 2);
+    bottom: calc(var(--pad) * 2);
+    white-space: nowrap;
+}
+
+@media (min-width: 1280px) {
+    .info {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        height: calc(var(--vh, 1vh) * 100);
+    }
+}
+
+@media (min-width: 1280px) {
+    .info_item {
+        position: absolute;
+    }
+}
+
+.info_item + .info_item {
+    margin-top: 50px;
+}
+
+@media (min-width: 1280px) {
+    .info_item + .info_item {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 1280px) {
+    .info_item-1 {
+        left: 55%;
+        top: calc(50% - 19px);
+    }
+}
+
+@media (min-width: 1280px) {
+    .info_item-2 {
+        right: calc(var(--pad) * 2);
+        top: calc(var(--pad) * 2);
+    }
+}
+
+@media (min-width: 1280px) {
+    .info_item-3 {
+        right: calc(var(--pad) * 2);
+        bottom: calc(var(--pad) * 2);
+    }
+}
+
+.info_content {
+    line-height: 1.5;
+}
+
+.info_content .is-light {
+    font-weight: 400;
+}
+
+.contact {
+    position: absolute;
+    right: calc(var(--pad) * 2);
+    bottom: calc(var(--pad) * 2);
+    white-space: nowrap;
+}
+
+.contact_text {
+    display: block;
+}
+
+.contact_text + .contact_text {
+    margin-top: 1em;
+}
+
+.contact_text .jp {
+    font-family: "Neue Montreal", "", Meiryo, sans-serif;
+}
